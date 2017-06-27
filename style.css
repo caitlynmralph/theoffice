@@ -1,0 +1,197 @@
+@font-face {
+  font-family: 'Atlas Grotesk Web';
+  src: url('fonts/AtlasGrotesk-Medium-Web.eot');
+  src: url('fonts/AtlasGrotesk-Medium-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AtlasGrotesk-Medium-Web.woff2') format('woff2'),
+       url('fonts/AtlasGrotesk-Medium-Web.woff') format('woff');
+  font-weight:  500;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.AtlasGrotesk-Medium-Web {
+  font-family: 'Atlas Grotesk Web';
+  font-weight:  500;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Atlas Grotesk Web';
+  src: url('fonts/AtlasGrotesk-Regular-Web.eot');
+  src: url('fonts/AtlasGrotesk-Regular-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AtlasGrotesk-Regular-Web.woff2') format('woff2'),
+       url('fonts/AtlasGrotesk-Regular-Web.woff') format('woff');
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.AtlasGrotesk-Regular-Web {
+  font-family: 'Atlas Grotesk Web';
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Atlas Grotesk Web';
+  src: url('fonts/AtlasGrotesk-Light-Web.eot');
+  src: url('fonts/AtlasGrotesk-Light-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AtlasGrotesk-Light-Web.woff2') format('woff2'),
+       url('fonts/AtlasGrotesk-Light-Web.woff') format('woff');
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.AtlasGrotesk-Light-Web {
+  font-family: 'Atlas Grotesk Web';
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Canela Web';
+  src: url('fonts/Canela-Bold-Web.eot');
+  src: url('fonts/Canela-Bold-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Canela-Bold-Web.woff2') format('woff2'),
+       url('fonts/Canela-Bold-Web.woff') format('woff');
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.Canela-Bold-Web {
+  font-family: 'Canela Web';
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Canela Web';
+  src: url('fonts/Canela-Light-Web.eot');
+  src: url('fonts/Canela-Light-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Canela-Light-Web.woff2') format('woff2'),
+       url('fonts/Canela-Light-Web.woff') format('woff');
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.Canela-Light-Web {
+  font-family: 'Canela Web';
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Publico Text Web';
+  src: url('fonts/PublicoText-Italic-Web.eot');
+  src: url('fonts/PublicoText-Italic-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/PublicoText-Italic-Web.woff2') format('woff2'),
+       url('fonts/PublicoText-Italic-Web.woff') format('woff');
+  font-weight:  400;
+  font-style:   italic;
+  font-stretch: normal;
+}
+
+.PublicoText-Italic-Web {
+  font-family: 'Publico Text Web';
+  font-weight:  400;
+  font-style:   italic;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'Publico Text Web';
+  src: url('fonts/PublicoText-Roman-Web.eot');
+  src: url('fonts/PublicoText-Roman-Web.eot?#iefix') format('embedded-opentype'),
+       url('fonts/PublicoText-Roman-Web.woff2') format('woff2'),
+       url('fonts/PublicoText-Roman-Web.woff') format('woff');
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.PublicoText-Roman-Web {
+  font-family: 'Publico Text Web';
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.axis-line{
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis-text{
+  font-family: 'Atlas Grotesk Web';
+  font-size: 10px;
+  text-anchor: end;
+  stroke-width: 0px;
+}
+
+.yAxis-label {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 12px;
+  stroke-width: 1px;
+}
+
+.bar {
+  fill: #C0C0C0;
+}
+
+.chart-title{
+  font-family: 'Canela Web';
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+  /* border-bottom: 1px solid #c5c5c5; */
+  /* padding-bottom: 25px; */
+  margin: 2rem;
+  margin-top: 60px;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 11px;
+  margin-bottom: 0px;
+  text-align: left;
+  width: 80%;
+  margin-top: 70px;
+  font-size: 32px;
+}
+
+.chart-subtitle {
+    font-family: 'Canela Web';
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 1);
+    padding-bottom: 5px;
+    margin: 0px auto;
+    margin-top: 3px;
+    /* padding-left: 300px; */
+    font-family: 'Atlas Grotesk Web';
+    font-weight: 600;
+    padding-top: 10px;
+    text-align: left;
+    margin: 2rem;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+body {
+  padding-bottom: 50px;
+}

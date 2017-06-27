@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Line Counts, The Office - Episode 01 Season 1</title>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p class="chart-title">The Office - Episode 01 Season 1</p>
+    <p class="chart-subtitle">Dialogue by Character</p>
+    <script type="text/javascript">
+      var w = 600;
+      var h = 400;
+      var padding = 60;
+
+      //Create SVG element
+      var svg = d3.select("body")
+        .append("svg")
+        .attr("width",w)
+        .attr("height",h);
+
+      d3.csv("linecounts_pilot.csv", function(d, i, columns) {
+
+        for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+          console.log(d);
+          return d;
+        }, function(error, data) {
+          if (error) throw error;
+
+        var xScale = d3.scaleBand()
+          .rangeRound([padding,w-padding])
+          .padding(0.1);
+        var yScale = d3.scaleLinear()
+          .domain([0,d3.max(data,function(d) {d.linecount;})])
+          .range([h-padding, padding]);
+        var xAxis = d3.axisBottom(xScale)
+          .ticks(5);
+        var yAxis = d3.axisLeft(yScale)
+          .ticks(4);
+
+        xScale.domain(data.map(function(d) { return d.character; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.linecount; })]);
+
+        svg.selectAll("rect")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("class","bar")
+          .attr("x",function(d) {
+            return xScale(d.character);
+          })
+          .attr("y",function(d) {
+            return yScale(d.linecount);
+          })
+          .attr("width",function(d,i) {
+            return xScale.bandwidth();
+          })
+          .attr("height",function(d) {
+            return h - yScale(d.linecount) - padding;
+          });
+
+        svg.append("g")
+          .attr("class","axis-line")
+          .attr("transform","translate(0," + (h - padding) + ")")
+          .call(xAxis)
+          .selectAll("text")
+            .attr("class","axis-text")
+            .attr("dx", "-.8em")
+            .attr("dy", "-.55em")
+            .attr("transform", "rotate(-60)" );
+
+        svg.append("g")
+          .attr("class","axis-line")
+          .attr("transform","translate(" + padding + ",0)")
+          .call(yAxis)
+          .selectAll("text")
+            .attr("class","axis-text");
+
+        svg.append("text")
+          .attr("transform","rotate(-90)")
+          .attr("y",padding-35)
+          .attr("x",0-(h/2))
+          .attr("class","yAxis-label")
+          .attr("text-anchor","middle")
+          .text("Line counts");
+
+        });
+      </script>
+  </body>
+</html>
