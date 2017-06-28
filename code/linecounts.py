@@ -5,15 +5,16 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import numpy as np
 import os
+import string
 
 os.chdir('/Applications/MAMP/htdocs/theoffice/spreadsheets')
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv', 'a') as csvfile:
+with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a') as csvfile:
 
-    writer = csv.writer(csvfile, delimiter=',',
+    writer = csv.writer(csvfile, delimiter='|',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
     counts = np.zeros([1,2], dtype=object)
@@ -28,8 +29,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                     '/Applications/MAMP/htdocs/theoffice/spreadsheets/Season%s/Season%s-Episode0%s%s.csv' % (str(season), str(season), str(episode), episodeNames[episode-1]),
                     delimiter="|", dtype=str, skiprows=0)
                 transcript = c[:]
+                punc = False
                 for i in range(0, len(transcript)):
-                    if transcript[i:i+1,0:1][0][0] not in characters:
+                    for x in transcript[i:i+1,0:1][0][0]:
+                        if x in string.punctuation:
+                            punc = True
+                            break
+                    if len(transcript[i:i+1,0:1][0][0]) > 15 or punc == True:
+                        continue
+                    elif transcript[i:i+1,0:1][0][0] not in characters:
                         characters.append(transcript[i:i + 1, 0:2][0][0])
                         row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                         counts = np.append(counts, row, axis=0)
@@ -48,8 +56,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                     print '/Season%s/Season%s-Episode0%s%s.csv' % (str(season), str(season), str(episode), episodeNames[episode - 1])
                     c = np.genfromtxt('/Applications/MAMP/htdocs/theoffice/spreadsheets/Season%s/Season%s-Episode0%s%s.csv' % (str(season), str(season), str(episode), episodeNames[episode - 1]),delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -63,8 +78,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                     c = np.genfromtxt('/Applications/MAMP/htdocs/theoffice/spreadsheets/Season%s/Season%s-Episode%s%s.csv' % (str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -86,8 +108,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -104,8 +133,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -126,8 +162,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -144,8 +187,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -167,8 +217,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -185,8 +242,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -207,8 +271,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -225,8 +296,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -248,8 +326,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -266,8 +351,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -289,8 +381,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]), delimiter="|", dtype=str,
                         skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -307,8 +406,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                             str(season), str(season), str(episode), episodeNames[episode - 1]),
                         delimiter="|", dtype=str, skiprows=0)
                     transcript = c[:]
+                    punc = False
                     for i in range(0, len(transcript)):
-                        if transcript[i:i + 1, 0:1][0][0] not in characters:
+                        for x in transcript[i:i + 1, 0:1][0][0]:
+                            if x in string.punctuation:
+                                punc = True
+                                break
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                            continue
+                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
                             characters.append(transcript[i:i + 1, 0:2][0][0])
                             row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
@@ -329,8 +435,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
                         str(season), str(season), str(episode), episodeNames[episode - 1]),
                     delimiter="|", dtype=str, skiprows=0)
                 transcript = c[:]
+                punc = False
                 for i in range(0, len(transcript)):
-                    if transcript[i:i+1,0:1][0][0] not in characters:
+                    for x in transcript[i:i+1,0:1][0][0]:
+                        if x in string.punctuation:
+                            punc = True
+                            break
+                    if len(transcript[i:i+1,0:1][0][0]) > 15 or punc == True:
+                        continue
+                    elif transcript[i:i+1,0:1][0][0] not in characters:
                         characters.append(transcript[i:i + 1, 0:2][0][0])
                         row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
                         counts = np.append(counts, row, axis=0)
@@ -346,4 +459,4 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts_pilot.csv
         print name
         line = row[1]
         print row
-        # writer.writerow([name,line])
+        writer.writerow([name,line])
