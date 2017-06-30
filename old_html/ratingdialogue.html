@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dialogue Per Character Over Time</title>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p class="chart-title">Dialogue vs. Rating</p>
+    <!-- <p class="chart-subtitle">Dialogue by Character</p> -->
+    <script type="text/javascript">
+      var w = 600;
+      var h = 400;
+      var padding = 30;
+
+      //Create SVG element
+      var svg = d3.select("body")
+        .append("svg")
+        .attr("width",w)
+        .attr("height",h);
+
+      var formatAsPercentage = d3.format(".1%");
+      d3.csv("spreadsheets/michael_percentdialogue_episode.csv", function(d, i, columns) {
+        for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+          console.log(d);
+          return d;
+        }, function(error, dataset) {
+          if (error) throw error;
+
+          var xScale = d3.scaleLinear()
+              .domain([0,d3.max(dataset, function(d) { return d.Michael;})])
+              .range([padding,w-padding*2]);
+          var yScale = d3.scaleLinear()
+              .domain([0,d3.max(dataset, function(d) {return d.Rating;})])
+              .range([h-padding*2,padding]);
+          var rScale = d3.scaleLinear()
+              .domain([0,d3.max(dataset, function(d) { return d.Rating;})])
+              .range([2,5]);
+          var xAxis = d3.axisBottom(xScale)
+              .ticks(5)
+              .tickFormat(formatAsPercentage);
+          var yAxis = d3.axisLeft(yScale)
+              .ticks(5);
+          svg.selectAll("circle")
+              .data(dataset)
+              .enter()
+              .append("circle")
+              .attr("cx",function(d) {
+                  return xScale(d.Michael); //Bar width of 20 plus 1 for padding
+              })
+              .attr("cy",function(d) {
+                  console.log(d.Rating)
+                  return yScale(d.Rating);
+              })
+              .attr("r", function(d) {
+                return rScale(d.Rating);
+              })
+
+          svg.append("g")
+              .attr("class","axis") //Assign "axis" class
+              .attr("transform","translate(0," + (h - padding) + ")")
+              .call(xAxis)
+          svg.append("g")
+              .attr("class","axis")
+              .attr("transform","translate(" + padding + ",0)")
+              .call(yAxis);
+
+        });
+      </script>
+  </body>
+</html>

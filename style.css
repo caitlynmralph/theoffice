@@ -130,9 +130,43 @@
   font-stretch: normal;
 }
 
+.dialogue-overtime-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+}
+
+.dialogue-appearances-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+}
+
+.rating-dialogue-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+}
+
+.bar {
+  fill: #C0C0C0;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+.tick line{
+  visibility: hidden;
+}
+
 .axis-line{
   fill: none;
-  stroke: black;
+  stroke: white;
   shape-rendering: crispEdges;
 }
 
@@ -149,8 +183,10 @@
   stroke-width: 1px;
 }
 
-.bar {
-  fill: #C0C0C0;
+.xAxis-label {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 12px;
+  stroke-width: 1px;
 }
 
 .chart-title{

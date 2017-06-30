@@ -12,7 +12,7 @@ os.chdir('/Applications/MAMP/htdocs/theoffice/spreadsheets')
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a') as csvfile:
+with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecountsnew.csv', 'a') as csvfile:
 
     writer = csv.writer(csvfile, delimiter='|',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -35,15 +35,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                         if x in string.punctuation:
                             punc = True
                             break
-                    if len(transcript[i:i+1,0:1][0][0]) > 15 or punc == True:
+                    if len(transcript[i:i+1,0:1][0][0]) > 20 or punc == True:
                         continue
-                    elif transcript[i:i+1,0:1][0][0] not in characters:
-                        characters.append(transcript[i:i + 1, 0:2][0][0])
-                        row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                    elif transcript[i:i+1,0:1][0][0].replace(" ","") not in characters:
+                        characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ",""))
+                        row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ",""), 1], [1, 2])
                         counts = np.append(counts, row, axis=0)
                     else:
                         for x in range(0, len(counts)):
-                            if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                            if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ",""):
                                 counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                 continue
 
@@ -62,15 +62,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -84,15 +84,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 3:
@@ -114,15 +114,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -139,15 +139,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 4:
@@ -168,15 +168,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -193,15 +193,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 5:
@@ -223,15 +223,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -248,15 +248,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 6:
@@ -277,15 +277,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -302,15 +302,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ",""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 7:
@@ -332,15 +332,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -357,15 +357,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         elif season == 8:
@@ -387,15 +387,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
                 else:
@@ -412,15 +412,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                             if x in string.punctuation:
                                 punc = True
                                 break
-                        if len(transcript[i:i + 1, 0:1][0][0]) > 15 or punc == True:
+                        if len(transcript[i:i + 1, 0:1][0][0]) > 20 or punc == True:
                             continue
-                        elif transcript[i:i + 1, 0:1][0][0] not in characters:
-                            characters.append(transcript[i:i + 1, 0:2][0][0])
-                            row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                        elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                            characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                            row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                             counts = np.append(counts, row, axis=0)
                         else:
                             for x in range(0, len(counts)):
-                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                                if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                     counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                     continue
         else:
@@ -441,15 +441,15 @@ with open('/Applications/MAMP/htdocs/theoffice/spreadsheets/linecounts.csv', 'a'
                         if x in string.punctuation:
                             punc = True
                             break
-                    if len(transcript[i:i+1,0:1][0][0]) > 15 or punc == True:
+                    if len(transcript[i:i+1,0:1][0][0]) > 20 or punc == True:
                         continue
-                    elif transcript[i:i+1,0:1][0][0] not in characters:
-                        characters.append(transcript[i:i + 1, 0:2][0][0])
-                        row = np.reshape([transcript[i:i + 1, 0:1][0][0], 1], [1, 2])
+                    elif transcript[i:i + 1, 0:1][0][0].replace(" ", "") not in characters:
+                        characters.append(transcript[i:i + 1, 0:2][0][0].replace(" ", ""))
+                        row = np.reshape([transcript[i:i + 1, 0:1][0][0].replace(" ", ""), 1], [1, 2])
                         counts = np.append(counts, row, axis=0)
                     else:
                         for x in range(0, len(counts)):
-                            if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0]:
+                            if counts[x:x + 1, 0:1][0][0] == transcript[i:i + 1, 0:1][0][0].replace(" ", ""):
                                 counts[x:x + 1, 1:2] = int(counts[x:x + 1, 1:2][0][0]) + 1
                                 continue
 
