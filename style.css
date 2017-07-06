@@ -130,7 +130,56 @@
   font-stretch: normal;
 }
 
-.dialogue-overtime-container{
+.top-title {
+  font-family: Canela;
+  font-size: 50px;
+  text-align: center;
+  line-height: 56px;
+  font-weight: 300;
+}
+
+/*.chart-title{
+  font-family: 'Canela Web';
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+  border-bottom: 1px solid #c5c5c5;
+  padding-bottom: 25px;
+  margin: 2rem;
+  margin-top: 60px;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 11px;
+  margin-bottom: 0px;
+  text-align: left;
+  width: 80%;
+  margin-top: 70px;
+  font-size: 32px;
+}*/
+
+.thats-what-she-said-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+  font-family: Atlas Grotesk;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.5px;
+  text-align: justify;
+  font-weight: lighter;
+}
+
+.character-name{
+  font-weight: 400;
+}
+
+.season-episode-name{
+  color: steelblue;
+  font-weight: 400;
+}
+
+/*.dialogue-overtime-container{
   display: flex;
   flex-wrap: wrap;
   margin: 2rem;
@@ -189,25 +238,6 @@
   stroke-width: 1px;
 }
 
-.chart-title{
-  font-family: 'Canela Web';
-  text-align: center;
-  font-size: 28px;
-  font-weight: 400;
-  color: #000000;
-  /* border-bottom: 1px solid #c5c5c5; */
-  /* padding-bottom: 25px; */
-  margin: 2rem;
-  margin-top: 60px;
-  border-bottom: 1px solid #cacaca;
-  padding-bottom: 11px;
-  margin-bottom: 0px;
-  text-align: left;
-  width: 80%;
-  margin-top: 70px;
-  font-size: 32px;
-}
-
 .chart-subtitle {
     font-family: 'Canela Web';
     text-align: center;
@@ -217,7 +247,7 @@
     padding-bottom: 5px;
     margin: 0px auto;
     margin-top: 3px;
-    /* padding-left: 300px; */
+    padding-left: 300px;
     font-family: 'Atlas Grotesk Web';
     font-weight: 600;
     padding-top: 10px;
@@ -231,3 +261,9 @@
 body {
   padding-bottom: 50px;
 }
+
+
+title {
+    font-family: AtlasGrotesk;
+}
+*/
