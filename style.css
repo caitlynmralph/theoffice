@@ -130,6 +130,10 @@
   font-stretch: normal;
 }
 
+html {
+    background-color: rgba(173, 216, 230, 0.27);
+}
+
 .top-title {
   font-family: Canela;
   font-size: 50px;
@@ -179,6 +183,26 @@
   font-weight: 400;
 }
 
+.popular-character-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+  /*font-family: Atlas Grotesk;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.5px;
+  text-align: justify;
+  font-weight: lighter;*/
+}
+
+.axis-text{
+  font-family: 'Atlas Grotesk Web';
+  font-size: 10px;
+  text-anchor: end;
+  stroke-width: 0px;
+}
+
 /*.dialogue-overtime-container{
   display: flex;
   flex-wrap: wrap;
@@ -217,13 +241,6 @@
   fill: none;
   stroke: white;
   shape-rendering: crispEdges;
-}
-
-.axis-text{
-  font-family: 'Atlas Grotesk Web';
-  font-size: 10px;
-  text-anchor: end;
-  stroke-width: 0px;
 }
 
 .yAxis-label {
