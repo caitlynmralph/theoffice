@@ -13,7 +13,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
     if (i == 0 || i == 2 || i == 3) {
       d[columns[i]] = +d[columns[i]];
     }
-    console.log(d);
+    // console.log(d);
     return d;
   }
   }, function(error, dataset) {
@@ -32,8 +32,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
     var svg2 = div2
         .append("svg")
         .attr("width",wi)
-        .attr("height",he)
-        .attr("class","svg2");
+        .attr("height",he);
 
     svg2.append("g")
         .attr("transform","translate(0," + (he - padding) + ")")
@@ -85,7 +84,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         if (i == 0 || i == 2) {
           d[columns[i]] = +d[columns[i]];
         }
-        console.log(d);
+        // console.log(d);
         return d;
       }
     }, function(error, AndyData) {
@@ -130,7 +129,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           if (i == 0 || i == 2) {
             d[columns[i]] = +d[columns[i]];
           }
-          console.log(d);
+          // console.log(d);
           return d;
         }
       }, function(error, DwightData) {
@@ -175,7 +174,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             if (i == 0 || i == 2) {
               d[columns[i]] = +d[columns[i]];
             }
-            console.log(d);
+            // console.log(d);
             return d;
           }
         }, function(error, PamData) {
@@ -220,7 +219,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           if (i == 0 || i == 2) {
             d[columns[i]] = +d[columns[i]];
           }
-          console.log(d);
+          // console.log(d);
           return d;
         }
       }, function(error, JimData) {

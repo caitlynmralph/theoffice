@@ -253,91 +253,30 @@ html {
   left: 0;
 }
 
-/*.dialogue-overtime-container{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2rem;
-  justify-content: flex-start;
-}
-
-.dialogue-appearances-container{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2rem;
-  justify-content: flex-start;
-}
-
-.rating-dialogue-container{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2rem;
-  justify-content: flex-start;
-}
-
-.bar {
-  fill: #C0C0C0;
-}
-
-.line {
-  fill: none;
-  stroke-width: 2px;
-}
-
-.tick line{
-  visibility: hidden;
-}
-
-.axis-line{
-  fill: none;
-  stroke: white;
-  shape-rendering: crispEdges;
-}
-
-.yAxis-label {
-  font-family: 'Atlas Grotesk Web';
-  font-size: 12px;
-  stroke-width: 1px;
-}
-
-.xAxis-label {
-  font-family: 'Atlas Grotesk Web';
-  font-size: 12px;
-  stroke-width: 1px;
-}
-
-.chart-subtitle {
-    font-family: 'Canela Web';
-    text-align: center;
-    font-size: 15px;
-    font-weight: 100;
-    color: rgba(0, 0, 0, 1);
-    padding-bottom: 5px;
-    margin: 0px auto;
-    margin-top: 3px;
-    padding-left: 300px;
-    font-family: 'Atlas Grotesk Web';
-    font-weight: 600;
-    padding-top: 10px;
-    text-align: left;
-    margin: 2rem;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    letter-spacing: 3px;
-}
-
-body {
-  padding-bottom: 50px;
-}
-
-
-title {
-    font-family: AtlasGrotesk;
-}
-*/
-
 
 .key-label {
     font-family: 'Atlas Grotesk Web';
     font-size: 13px;
     font-weight: normal;
     /* letter-spacing: 2px; */
+}
+
+.dwightov-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.button {
+  fill: none;
+  stroke: black;
+  stroke-width: 1;
+}
+
+.button-text {
+    font-family: 'Atlas Grotesk Web';
+    font-size: 13px;
+    font-weight: 400;
+}
