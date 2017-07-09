@@ -23,7 +23,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         .domain([.6,d3.max(dataset, function(d) { return d.Rating;})])
         .range([padding,wi-padding]);
     var rScale = d3.scaleLinear()
-        .domain([.6,d3.max(dataset, function(d) { return d.Rating;})])
+        .domain([1,d3.max(dataset, function(d) { return d.ENumber;})])
         .range([1,6]);
     var xAxis = d3.axisBottom(xScale)
         .tickSize([0])
@@ -53,11 +53,6 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         .attr("transform","translate(" + (wi-padding-30) + "," + (he-(padding/2)) + ")")
         .text("High");
 
-    var div = svg2
-        .append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-
     // Andy
     d3.tsv("spreadsheets/andy_rating.tsv", function(d, i, columns) {
       for (var i = 0, n = columns.length; i < n; ++i) {
@@ -75,6 +70,12 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             .attr("width",wi)
             .attr("height",(he-(padding*2))/4);
 
+        var tool_tip = d3.tip()
+          .attr("class", "d3-tip")
+          .offset([-8, 0])
+          .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+        Andy.call(tool_tip);
+
         Andy.selectAll("circle")
             .data(AndyData)
             .enter()
@@ -84,21 +85,10 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             })
             .attr("cy",he-(padding*2))
             .attr("r", function(d) {
-              return rScale(d.Rating);
+              return rScale(d.ENumber);
             })
-            .on("mouseover", function(d) {
-              div.transition()
-                .duration(200)
-                .style("opacity", .9);
-              div.html(d.Rating)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-              })
-            .on("mouseout", function(d) {
-              div.transition()
-                .duration(500)
-                .style("opacity", 0);
-              });
+            .on('mouseover', tool_tip.show)
+            .on('mouseout', tool_tip.hide);
 
         Andy.append("g")
             .append("text")
@@ -124,6 +114,12 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               .attr("width",wi)
               .attr("height",(he-(padding*2))/4);
 
+          var tool_tip = d3.tip()
+            .attr("class", "d3-tip")
+            .offset([-8, 0])
+            .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+          Dwight.call(tool_tip);
+
           Dwight.selectAll("circle")
               .data(DwightData)
               .enter()
@@ -133,8 +129,10 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               })
               .attr("cy",he-(padding*4))
               .attr("r", function(d) {
-                return rScale(d.Rating);
-              });
+                return rScale(d.ENumber);
+              })
+              .on('mouseover', tool_tip.show)
+              .on('mouseout', tool_tip.hide);;
 
           Dwight.append("g")
               .append("text")
@@ -160,6 +158,12 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
                 .attr("width",wi)
                 .attr("height",(he-(padding*2))/4);
 
+            var tool_tip = d3.tip()
+              .attr("class", "d3-tip")
+              .offset([-8, 0])
+              .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+            Pam.call(tool_tip);
+
             Pam.selectAll("circle")
                 .data(PamData)
                 .enter()
@@ -169,8 +173,10 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
                 })
                 .attr("cy",he-(padding*6))
                 .attr("r", function(d) {
-                  return rScale(d.Rating);
-                });
+                  return rScale(d.ENumber);
+                })
+                .on('mouseover', tool_tip.show)
+                .on('mouseout', tool_tip.hide);;
 
             Pam.append("g")
                 .append("text")
@@ -196,6 +202,12 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               .attr("width",wi)
               .attr("height",(he/4)-5);
 
+          var tool_tip = d3.tip()
+            .attr("class", "d3-tip")
+            .offset([-8, 0])
+            .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+          Jim.call(tool_tip);
+
           Jim.selectAll("circle")
               .data(JimData)
               .enter()
@@ -205,8 +217,10 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               })
               .attr("cy",he-padding*8)
               .attr("r", function(d) {
-                return rScale(d.Rating);
-              });
+                return rScale(d.ENumber);
+              })
+              .on('mouseover', tool_tip.show)
+              .on('mouseout', tool_tip.hide);;
 
           Jim.append("g")
               .append("text")
