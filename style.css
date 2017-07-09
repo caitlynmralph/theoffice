@@ -135,28 +135,35 @@ html {
 }
 
 .top-title {
-  font-family: Canela Web;
+  font-family: 'Canela Web';
   font-size: 50px;
+  font-weight: 300;
   text-align: center;
   line-height: 56px;
-  font-weight: 300;
   margin-bottom: 50px;
-  border-bottom: 1px solid #cacaca;
-  padding-bottom: 10px;
+  /*border-bottom: 1px solid #cacaca;
+  padding-bottom: 10px;*/
 }
 
 .chart-title{
   font-family: 'Canela Web';
-  font-weight: lighter;
   font-size: 27px;
+  font-weight: normal;
   text-align: left;
   color: #000000;
-  margin: 0rem;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid #cacaca;
-  padding-bottom: 10px; */
-  width: 80%;
+  /*border-bottom: 1px solid #cacaca;
+  padding-bottom: 5px;*/
+  width: 1000px;
+  margin-bottom: -10px;
+}
+
+.sub-title{
+  font-family: 'Canela Web';
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: left;
+  color: black;
+  width: 1000px;
 }
 
 .thats-what-she-said-container{
@@ -166,10 +173,11 @@ html {
   justify-content: flex-start;
   font-family: Atlas Grotesk;
   font-size: 15px;
+  font-weight: lighter;
+  text-align: justify;
   line-height: 19px;
   letter-spacing: 0.5px;
-  text-align: justify;
-  font-weight: lighter;
+  margin-bottom: 50px;
 }
 
 .character-name{
@@ -186,41 +194,56 @@ html {
   flex-wrap: wrap;
   margin: 2rem;
   justify-content: flex-start;
-  /*font-family: Atlas Grotesk;
-  font-size: 15px;
-  line-height: 19px;
-  letter-spacing: 0.5px;
-  text-align: justify;
-  font-weight: lighter;*/
+  margin-bottom: 50px;
+}
+
+.circle {
+  fill: black;
 }
 
 .axis-text{
   font-family: 'Atlas Grotesk Web';
-  font-size: 10px;
-  text-anchor: end;
-  stroke-width: 0px;
+  font-size: 13px;
+  font-weight: normal;
+  /* letter-spacing: 2px; */
+  /* text-anchor: end; */
+  /*stroke-width: 0px;*/
+}
+
+.x-axis-label {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.character-label {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .d3-tip {
   line-height: 1;
   padding: 6px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  background: rgba(70, 144, 200, 0.54);
+  color: #000000;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
+  font-family: 'Atlas Grotesk Web';
 }
 
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
-  font-size: 10px;
+  font-size: 13px;
   width: 100%;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(70, 144, 200, 0.54);
   content: "\25BC";
   position: absolute;
   text-align: center;
+  font-family: 'Atlas Grotesk Web';
 }
 
 /* Style northward tooltips specifically */
@@ -312,5 +335,9 @@ title {
 }
 */
 
-}
-*/
+
+.key-label {
+    font-family: 'Atlas Grotesk Web';
+    font-size: 13px;
+    font-weight: normal;
+    /* letter-spacing: 2px; */

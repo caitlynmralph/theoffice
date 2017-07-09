@@ -24,7 +24,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         .range([padding,wi-padding]);
     var rScale = d3.scaleLinear()
         .domain([1,d3.max(dataset, function(d) { return d.ENumber;})])
-        .range([1,6]);
+        .range([2,7]);
     var xAxis = d3.axisBottom(xScale)
         .tickSize([0])
         .ticks(0);
@@ -32,7 +32,8 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
     var svg2 = div2
         .append("svg")
         .attr("width",wi)
-        .attr("height",he);
+        .attr("height",he)
+        .attr("class","svg2");
 
     svg2.append("g")
         .attr("transform","translate(0," + (he - padding) + ")")
@@ -42,16 +43,41 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         .append("g");
 
     xaxislabel.append("text")
-        .attr("transform","translate(" + ((wi-(padding*2))/2) + "," + (he-(padding/5)) + ")")
-        .text("Episode Rating");
+        .attr("transform","translate(" + ((wi-(padding*2))/2-10) + "," + (he-(padding/5)) + ")")
+        .attr("class","x-axis-label")
+        .text("EPISODE RATING");
 
     xaxislabel.append("text")
         .attr("transform","translate(" + (wi-((padding*2)+450)) + "," + (he-(padding/2)) + ")")
-        .text("Low");
+        .attr("class","axis-text")
+        .text("LOW");
 
     xaxislabel.append("text")
-        .attr("transform","translate(" + (wi-padding-30) + "," + (he-(padding/2)) + ")")
-        .text("High");
+        .attr("transform","translate(" + (wi-padding-35) + "," + (he-(padding/2)) + ")")
+        .attr("class","axis-text")
+        .text("HIGH");
+
+    svg2.append("circle")
+        .attr("class","circle")
+        .attr("cx",(wi-((padding*2)+420)))
+        .attr("cy",padding/2+5)
+        .attr("r", 2);
+
+    svg2.append("circle")
+        .attr("class","circle")
+        .attr("cx",(wi-((padding*2)+395)))
+        .attr("cy",padding/2+5)
+        .attr("r", 7);
+
+    svg2.append("text")
+        .attr("transform","translate(" + (wi-((padding*2)+500)) + "," + (padding/2+10) + ")")
+        .attr("class","key-label")
+        .text("SEASON 1");
+
+    svg2.append("text")
+        .attr("transform","translate(" + (wi-((padding*2)+380)) + "," + (padding/2+10) + ")")
+        .attr("class","key-label")
+        .text("SEASON 9");
 
     // Andy
     d3.tsv("spreadsheets/andy_rating.tsv", function(d, i, columns) {
@@ -73,7 +99,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         var tool_tip = d3.tip()
           .attr("class", "d3-tip")
           .offset([-8, 0])
-          .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+          .html(function(d) { return "<strong>Episode</strong>: " + d.ENumber + ", " + d.EName + "</br>" + "<strong>Rating</strong>: " + d.Rating; });
         Andy.call(tool_tip);
 
         Andy.selectAll("circle")
@@ -93,6 +119,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
         Andy.append("g")
             .append("text")
             .attr("transform","translate(" + (wi-((padding*2)+445)) + "," + (he-(padding*2)) + ")")
+            .attr("class","character-label")
             .text("Andy");
 
       });
@@ -117,7 +144,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           var tool_tip = d3.tip()
             .attr("class", "d3-tip")
             .offset([-8, 0])
-            .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+            .html(function(d) { return "<strong>Episode</strong>: " + d.ENumber + ", " + d.EName + "</br>" + "<strong>Rating</strong>: " + d.Rating; });
           Dwight.call(tool_tip);
 
           Dwight.selectAll("circle")
@@ -137,6 +164,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           Dwight.append("g")
               .append("text")
               .attr("transform","translate(" + (wi-((padding*2)+445)) + "," + (he-(padding*4)) + ")")
+              .attr("class","character-label")
               .text("Dwight");
 
         });
@@ -161,7 +189,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             var tool_tip = d3.tip()
               .attr("class", "d3-tip")
               .offset([-8, 0])
-              .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+              .html(function(d) { return "<strong>Episode</strong>: " + d.ENumber + ", " + d.EName + "</br>" + "<strong>Rating</strong>: " + d.Rating; });
             Pam.call(tool_tip);
 
             Pam.selectAll("circle")
@@ -181,6 +209,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             Pam.append("g")
                 .append("text")
                 .attr("transform","translate(" + (wi-((padding*2)+445)) + "," + (he-(padding*6)) + ")")
+                .attr("class","character-label")
                 .text("Pam");
 
           });
@@ -205,7 +234,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           var tool_tip = d3.tip()
             .attr("class", "d3-tip")
             .offset([-8, 0])
-            .html(function(d) { return "Epiosode: " + d.ENumber + ", " + d.EName + "</br>" + "Rating: " + d.Rating; });
+            .html(function(d) { return "<strong>Episode</strong>: " + d.ENumber + ", " + d.EName + "</br>" + "<strong>Rating</strong>: " + d.Rating; });
           Jim.call(tool_tip);
 
           Jim.selectAll("circle")
@@ -225,6 +254,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
           Jim.append("g")
               .append("text")
               .attr("transform","translate(" + (wi-((padding*2)+445)) + "," + (he-(padding*8)) + ")")
+              .attr("class","character-label")
               .text("Jim");
 
         });
