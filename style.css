@@ -135,31 +135,29 @@ html {
 }
 
 .top-title {
-  font-family: Canela;
+  font-family: Canela Web;
   font-size: 50px;
   text-align: center;
   line-height: 56px;
   font-weight: 300;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 10px;
 }
 
-/*.chart-title{
+.chart-title{
   font-family: 'Canela Web';
-  text-align: center;
-  font-size: 28px;
-  font-weight: 400;
-  color: #000000;
-  border-bottom: 1px solid #c5c5c5;
-  padding-bottom: 25px;
-  margin: 2rem;
-  margin-top: 60px;
-  border-bottom: 1px solid #cacaca;
-  padding-bottom: 11px;
-  margin-bottom: 0px;
+  font-weight: lighter;
+  font-size: 27px;
   text-align: left;
+  color: #000000;
+  margin: 0rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 10px; */
   width: 80%;
-  margin-top: 70px;
-  font-size: 32px;
-}*/
+}
 
 .thats-what-she-said-container{
   display: flex;
@@ -311,5 +309,8 @@ body {
 
 title {
     font-family: AtlasGrotesk;
+}
+*/
+
 }
 */

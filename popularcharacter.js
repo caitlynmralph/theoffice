@@ -81,7 +81,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
             .enter()
             .append("circle")
             .attr("cx",function(d) {
-                return xScale(d.Rating); //Bar width of 20 plus 1 for padding
+                return xScale(d.Rating);
             })
             .attr("cy",he-(padding*2))
             .attr("r", function(d) {
@@ -125,7 +125,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               .enter()
               .append("circle")
               .attr("cx",function(d) {
-                  return xScale(d.Rating); //Bar width of 20 plus 1 for padding
+                  return xScale(d.Rating);
               })
               .attr("cy",he-(padding*4))
               .attr("r", function(d) {
@@ -169,7 +169,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
                 .enter()
                 .append("circle")
                 .attr("cx",function(d) {
-                    return xScale(d.Rating); //Bar width of 20 plus 1 for padding
+                    return xScale(d.Rating);
                 })
                 .attr("cy",he-(padding*6))
                 .attr("r", function(d) {
@@ -213,7 +213,7 @@ d3.tsv("spreadsheets/characters_rating.tsv", function(d, i, columns) {
               .enter()
               .append("circle")
               .attr("cx",function(d) {
-                  return xScale(d.Rating); //Bar width of 20 plus 1 for padding
+                  return xScale(d.Rating);
               })
               .attr("cy",he-padding*8)
               .attr("r", function(d) {
