@@ -262,21 +262,41 @@ html {
 }
 
 .dwightov-container{
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   margin: 2rem;
   justify-content: flex-start;
   margin-bottom: 50px;
 }
 
-.button {
-  fill: none;
-  stroke: black;
-  stroke-width: 1;
+.dwight-chart-title{
+  font-family: 'Canela Web';
+  font-size: 27px;
+  font-weight: normal;
+  text-align: left;
+  color: #000000;
+  /*border-bottom: 1px solid #cacaca;
+  padding-bottom: 5px;*/
+  width: 1000px;
+  margin-bottom: 20px;
 }
 
-.button-text {
+#generate {
+  color: black;
+  background-color: transparent;
+  font-family: 'Atlas Grotesk Web';
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+
+#response {
     font-family: 'Atlas Grotesk Web';
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: lighter;
+    /* padding-left: 10px; */
+    padding-top: 10px;
 }

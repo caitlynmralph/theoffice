@@ -1,6 +1,6 @@
 var wi = 600;
 var he = 500;
-var padding = 50;
+// var padding = 50;
 var transitionDuration = 1000;
 
 var div3 = d3.select(".dwightov-container")
@@ -20,10 +20,9 @@ d3.tsv("spreadsheets/dwight_markov_tweets.tsv", function(d, i, columns) {
   }, function(error, dataset) {
     if (error) throw error;
 
-    console.log(dataset[getRandomInt(0,dataset.length)].line);
-
     document.getElementById("generate").onclick = function() {
-      document.getElementById("response").innerHTML = dataset[getRandomInt(0,dataset.length)].line;
+      response = "\n" + " " + dataset[getRandomInt(0,dataset.length)].line
+      document.getElementById("response").innerHTML = response;
     }
 
     // function redrawText() {
