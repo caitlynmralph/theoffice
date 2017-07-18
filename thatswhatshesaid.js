@@ -11,7 +11,7 @@ d3.tsv("spreadsheets/thatswhatshesaid_cleaned.tsv", function(data) {
     // console.log(d);
   });
 
-  var block = div1
+  var block_left = div1
     .append("p")
     .selectAll("span")
     .data(data)
@@ -34,5 +34,53 @@ d3.tsv("spreadsheets/thatswhatshesaid_cleaned.tsv", function(data) {
       }
       else {return ": " + d.Line + " ";
     }});
+
+
+    // .selectAll("p")
+    // .data(data)
+    // .enter()
+    // .append("p")
+    // .attr("class",function(d) {
+    //   if(d.Number==1){
+    //     return "left-text";
+    //   }
+    // })
+    // .text(function(d) {
+    //   if (d.Number == 1){
+    //     return d.Character + " " + d.Line + " ";
+    //   }
+    // })
+    //
+    // var block_right = div1
+    //   .selectAll("p")
+    //   .data(data)
+    //   .enter()
+    //   .append("p")
+    //   .attr("class",function(d) {
+    //     if(d.Number==3){
+    //       return "right-text";
+    //     }
+    //   })
+    //   .text(function(d) {
+    //     if (d.Number == 3){
+    //       return c.Character + " " + d.Line + " ";
+    //     }
+    //   })
+    //
+    //   var block_shesaid = div1
+    //     .selectAll("p")
+    //     .data(data)
+    //     .enter()
+    //     .append("p")
+    //     .attr("class",function(d) {
+    //       if(d.Number==3){
+    //         return "she-said-text";
+    //       }
+    //     })
+    //     .text(function(d) {
+    //       if (d.Number == 2){
+    //         return " " + d.Line + " ";
+    //       }
+    //     })
 
 });
