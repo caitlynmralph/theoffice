@@ -140,9 +140,11 @@ html {
   font-weight: 300;
   text-align: center;
   line-height: 66px;
-  /*margin-bottom: 50px;*/
-  /*border-bottom: 1px solid #cacaca;
-  padding-bottom: 10px;*/
+  /* background-color: white; */
+  /* width: 400px; */
+  /* margin: auto; */
+  /* margin-bottom: 57px; */
+  /* box-shadow: 2px 2px 7px 0px grey; */
 }
 
 .main-subtitle {
@@ -152,9 +154,8 @@ html {
   text-align: center;
   line-height: 0px;
   margin-bottom: 50px;
-  /*border-bottom: 1px solid #cacaca;
-  padding-bottom: 10px;*/
   margin-top: -25px;
+  justify-content: center;
 }
 
 .chart-title{
@@ -182,7 +183,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   margin: 2rem;
-  justify-content: flex-start;
+  justify-content: center;
   font-family: Atlas Grotesk;
   font-size: 15px;
   font-weight: lighter;
@@ -192,13 +193,32 @@ html {
   margin-bottom: 50px;
 }
 
-.character-name{
+/*.character-name{
   font-weight: 400;
 }
 
 .season-episode-name{
   color: steelblue;
   font-weight: 400;
+}*/
+
+.joke-div{
+  margin: .5rem;
+  position: relative;
+  background-color: white;
+  box-shadow: 2px 2px 7px 0px grey;
+}
+
+.image{
+  stroke: black;
+  stroke-width: 0.25;
+}
+
+.lines{
+  font-family: 'Atlas Grotesk Web';
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
 .popular-character-container{
