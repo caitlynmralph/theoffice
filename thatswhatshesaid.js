@@ -40,7 +40,7 @@ d3.tsv("spreadsheets/thatswhatshesaid_cleaned_new.tsv", function(data) {
     })
     .text(function(d) {
       if (d.value != 0) {
-        return d.value.slice(3) + "  ";
+        return d.value.slice(3) + "\n";
       }
     });
 

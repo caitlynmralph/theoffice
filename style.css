@@ -180,10 +180,10 @@ html {
 }
 
 .thats-what-she-said-container{
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   margin: 2rem;
-  justify-content: center;
+  justify-content: left;
   font-family: Atlas Grotesk;
   font-size: 15px;
   font-weight: lighter;
@@ -191,13 +191,15 @@ html {
   line-height: 19px;
   letter-spacing: 0.5px;
   margin-bottom: 50px;
+  /* border-bottom: 1px solid #cacaca; */
 }
 
 .joke-div{
   margin: .5rem;
   position: relative;
-  background-color: white;
-  box-shadow: 2px 2px 7px 0px grey;
+  /* background-color: white; */
+  /* box-shadow: 2px 2px 7px 0px grey; */
+  border-bottom: 1px solid #cacaca;
 }
 
 .character-image{
@@ -208,27 +210,23 @@ html {
 .line-container{
   margin: 10px;
   line-height: 21px;
-  text-align: center;
+  text-align: left;
 }
 
 .lines{
-  font-family: 'Canela Web';
+  font-family: 'Atlas Grotesk Web';
   font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.5px;
 }
 
 .thats-what-she-said-text{
-  font-family: 'Canela Web';
+  font-family: 'Atlas Grotesk Web';
   font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.5px;
   color: lightslategray;
 }
-
-span.thats-what-she-said-text {}
-
-span.thats-what-she-said-text {}
 
 .popular-character-container{
   display: flex;
