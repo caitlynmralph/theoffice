@@ -34,7 +34,7 @@ d3.tsv("spreadsheets/thatswhatshesaid_cleaned_new.tsv", function(data) {
       if(d.value[2] == 0) {
         return "lines";
       }
-      else {
+      else if (d.value[2] == 1){
         return "thats-what-she-said-text"
       }
     })
