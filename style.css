@@ -219,7 +219,7 @@ html {
   font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.5px;
-  background-image: url("pictures/michael.png");
+  /*background-image: url("pictures/michael.png");*/
   background-repeat: no-repeat;
   padding-left: 30px;
   padding-bottom: 20px;
@@ -249,6 +249,12 @@ html {
   margin-bottom: 50px;
 }
 
+.line-counts-histogram{
+  padding-left: 70px;
+  padding-bottom: 45px;
+  padding-right: 15px;
+}
+
 .popular-character-container{
   display: flex;
   flex-wrap: wrap;
@@ -257,23 +263,19 @@ html {
   margin-bottom: 50px;
 }
 
-.circle {
+.popular-character-scatterplot{
+  padding-bottom: 50px;
+  padding-left: 40px;
+}
+
+.circle-key {
   fill: black;
 }
 
-.axis-text{
-  font-family: 'Atlas Grotesk Web';
-  font-size: 13px;
-  font-weight: normal;
-  /* letter-spacing: 2px; */
-  /* text-anchor: end; */
-  /*stroke-width: 0px;*/
-}
-
-.x-axis-label {
-  font-family: 'Atlas Grotesk Web';
-  font-size: 15px;
-  font-weight: 500;
+.circle {
+  fill: black;
+  fill-opacity: 0.1;
+  position: relative;
 }
 
 .character-label {
@@ -359,4 +361,23 @@ html {
     font-weight: lighter;
     /* padding-left: 10px; */
     padding-top: 10px;
+}
+
+.axis-text{
+  font-family: 'Atlas Grotesk Web';
+  font-size: 13px;
+  font-weight: normal;
+  /* letter-spacing: 2px; */
+  /* text-anchor: end; */
+  /*stroke-width: 0px;*/
+}
+
+.axis-line{
+  stroke: "black";
+}
+
+.axis-label {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 15px;
+  font-weight: 500;
 }

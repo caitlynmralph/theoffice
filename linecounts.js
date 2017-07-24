@@ -1,10 +1,10 @@
-var w = 600;
-var h = 500;
-var barPadding = 10;
-var padding = 30;
+var w2 = 600;
+var h2 = 500;
+var barPadding = 5;
+var p2 = 5;
 
 //Create svg element
-var div4 = d3.select(".line-counts-container")
+var div2 = d3.select(".line-counts-container")
   .append("div");
 
 var formatAsPercentage = d3.format(".1%");
@@ -21,24 +21,25 @@ d3.csv("spreadsheets/linecountsnew_cleaned.csv", function(data) {
   });
 
     var yScale = d3.scaleBand()
-      .rangeRound([padding,h-padding])
-      .padding(0.5);
+      .rangeRound([p2,h2-p2])
+      .padding(0.1);
     var xScale = d3.scaleLinear()
-      .range([padding, w-padding]);
+      .range([p2, w2-p2]);
 
     yScale.domain(data.map(function(d) { return d.character; }));
     xScale.domain([0, d3.max(data, function(d) { return d.count; })]);
 
-    var svg4 = div4
+    var svg2 = div2
         .append("svg")
-        .attr("width",w)
-        .attr("height",h);
+        .attr("width",w2)
+        .attr("height",h2)
+        .attr("class","line-counts-histogram");
 
-    svg4.selectAll("rect")
+    svg2.selectAll("rect")
         .data(data)
         .enter()
         .append("rect")
-        .attr("x",padding)
+        .attr("x",p2)
         .attr("y",function(d) {
           return yScale(d.character);
         })
@@ -50,29 +51,37 @@ d3.csv("spreadsheets/linecountsnew_cleaned.csv", function(data) {
         });
 
     var xaxisScale = d3.scaleLinear()
-      .domain([d3.max(data,function(d) {d.count;}),0])
-      .range([padding, w-padding]);
+      .domain([0,d3.max(data,function(d) {d.count;})])
+      .range([p2, w2-p2]);
     var xAxis = d3.axisBottom(xScale)
-      .ticks();
-
-    svg4.append("g")
-    .attr("class","axis-line")
-    .attr("transform","translate(0," + (h-padding) + ")")
-    .call(xAxis)
-    .selectAll("text")
-      .attr("class","axis-text")
-      .attr("dx", "-.8em")
-      .attr("dy", "-.55em");
-
-    var yAxis = d3.axisLeft(yScale);
+      .tickSizeOuter(0);
 
     svg2.append("g")
-      // .attr("class","axis-line")
-      .attr("transform","translate(" + (w) + ",0)")
+      .attr("class","axis-line")
+      .attr("transform","translate(0," + (h2-p2) + ")")
+      .call(xAxis)
+      .selectAll("text")
+        .attr("class","axis-text")
+        .attr("dx", "-0.5em")
+        .attr("dy", "1em");
+
+    svg2.append("text")      // text label for the x axis
+        .attr("x", w2/2 )
+        .attr("y",  h2-p2+50  )
+        .style("text-anchor", "middle")
+        .attr("class","axis-label")
+        .text("NUMBER OF LINES");
+
+    var yAxis = d3.axisLeft(yScale)
+      .tickSizeOuter(0);
+
+    svg2.append("g")
+      .attr("class","axis-line")
+      .attr("transform","translate(" + (p2) + "," + (0) + ")")
       .call(yAxis)
       .selectAll("text")
         .attr("class","axis-text")
-        .attr("dx", "-.8em")
-        .attr("dy", "-.55em");
+        .attr("dx", "-.7em")
+        .attr("dy", "0.4em");
 
   });
