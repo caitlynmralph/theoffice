@@ -1,9 +1,9 @@
-var width = 600;
-var height = 400;
-var padding = 60;
+var w6 = 600;
+var h6 = 400;
+var p6 = 60;
 
 //Create svg element
-var div1 = d3.select(".dialogue-overtime-container")
+var div6 = d3.select(".dialogue-over-time-container")
   .append("div");
 
 d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", function(d, i, columns) {
@@ -14,10 +14,10 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     if (error) throw error;
 
   var xScale = d3.scaleBand()
-    .rangeRound([padding,width-padding])
+    .rangeRound([p6,w6-p6])
     .padding(0.1);
   var yScale = d3.scaleLinear()
-    .range([height-padding, padding]);
+    .range([h6-p6, p6]);
   var xAxis = d3.axisBottom(xScale);
   var yAxis = d3.axisLeft(yScale)
     .tickFormat(d3.format(".0%"));
@@ -51,15 +51,16 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
       .y(function(d) { return yScale(d.Andy); })
       .curve(d3.curveMonotoneX);
 
-  var svg1 = div1
+  var svg6 = div6
       .append("svg")
-      .attr("width",width)
-      .attr("height",height);
+      .attr("width",w6)
+      .attr("height",h6)
+      .attr("class","dialogue-over-time-line-chart");
 
-  var path = svg1.append("path")
+  var path = svg6.append("path")
       .data([data])
       .attr("class", "line")
-      .style("stroke","#C0C0C0")
+      .style("stroke","blue")
       .attr("d", valueline);
 
   var totalLength = path.node().getTotalLength();
@@ -67,15 +68,17 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
   path
     .attr("stroke-dasharray", totalLength + " " + totalLength)
     .attr("stroke-dashoffset", totalLength)
+    .attr("id", "path1")
     .transition()
-      .duration(1000)
+      .duration(4000)
       .attr("stroke-dashoffset", 0)
-      .style("stroke-opacity",0.1);
+      .style("stroke-opacity",0.3)
+      .style("stroke","rgb(169, 169, 169)");
 
-  var path = svg1.append("path")
+  var path = svg6.append("path")
       .data([data])
       .attr("class", "line")
-      .style("stroke","#A9A9A9")
+      .style("stroke","blue")
       .attr("d", valueline2)
 
   var totalLength = path.node().getTotalLength();
@@ -84,15 +87,16 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     .attr("stroke-dasharray", totalLength + " " + totalLength)
     .attr("stroke-dashoffset", totalLength)
     .transition()
-      .duration(1000)
-      .delay(1000)
+      .duration(4000)
+      .delay(4000)
       .attr("stroke-dashoffset", 0)
-      .style("stroke-opacity",0.1);
+      .style("stroke-opacity",0.3)
+      .style("stroke","rgb(169, 169, 169)");
 
-  var path = svg1.append("path")
+  var path = svg6.append("path")
       .data([data])
       .attr("class", "line")
-      .style("stroke","#808080")
+      .style("stroke","blue")
       .attr("d", valueline3)
 
   var totalLength = path.node().getTotalLength();
@@ -101,15 +105,16 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     .attr("stroke-dasharray", totalLength + " " + totalLength)
     .attr("stroke-dashoffset", totalLength)
     .transition()
-      .duration(1000)
-      .delay(2000)
+      .duration(4000)
+      .delay(8000)
       .attr("stroke-dashoffset", 0)
-      .style("stroke-opacity",0.1);
+      .style("stroke-opacity",0.3)
+      .style("stroke","rgb(169, 169, 169)");
 
-  var path = svg1.append("path")
+  var path = svg6.append("path")
       .data([data])
       .attr("class", "line")
-      .style("stroke","#696969")
+      .style("stroke","blue")
       .attr("d", valueline4)
 
   var totalLength = path.node().getTotalLength();
@@ -118,15 +123,16 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     .attr("stroke-dasharray", totalLength + " " + totalLength)
     .attr("stroke-dashoffset", totalLength)
     .transition()
-      .duration(1000)
-      .delay(3000)
+      .duration(4000)
+      .delay(12000)
       .attr("stroke-dashoffset", 0)
-      .style("stroke-opacity",0.1);
+      .style("stroke-opacity",0.3)
+      .style("stroke","rgb(169, 169, 169)");
 
-  var path = svg1.append("path")
+  var path = svg6.append("path")
       .data([data])
       .attr("class", "line")
-      .style("stroke","#708090")
+      .style("stroke","blue")
       .attr("d", valueline5)
 
   var totalLength = path.node().getTotalLength();
@@ -135,42 +141,73 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     .attr("stroke-dasharray", totalLength + " " + totalLength)
     .attr("stroke-dashoffset", totalLength)
     .transition()
-      .duration(1000)
-      .delay(4000)
+      .duration(4000)
+      .delay(16000)
       .attr("stroke-dashoffset", 0)
-      .style("stroke-opacity",0.1);
+      .style("stroke-opacity",0.3)
+      .style("stroke","rgb(169, 169, 169)");
 
-  svg1.append("g")
+  svg6.append("g")
     .attr("class","axis-line")
-    .attr("transform","translate(0," + (height - padding) + ")")
+    .attr("transform","translate(0," + (h6 - p6) + ")")
     .call(xAxis)
     .selectAll("text")
       .attr("class","axis-text")
-      .attr("dx", "-.8em")
-      .attr("dy", "-.55em")
-      .attr("transform", "rotate(-60)" );
+      .attr("dx", "0em")
+      .attr("dy", ".75em");
 
-  svg1.append("g")
+  svg6.append("g")
     .attr("class","axis-line")
-    .attr("transform","translate(" + padding + ",0)")
+    .attr("transform","translate(" + p6 + ",0)")
     .call(yAxis)
     .selectAll("text")
       .attr("class","axis-text");
 
-  svg1.append("text")
+  svg6.append("text")
     .attr("transform","rotate(-90)")
-    .attr("y",padding-35)
-    .attr("x",0-(height/2))
-    .attr("class","yAxis-label")
+    .attr("y",p6-50)
+    .attr("x",0-(h6/2))
+    .attr("class","axis-label")
     .attr("text-anchor","middle")
-    .text("Dialogue");
+    .text("DIALOGUE");
 
-  svg1.append("text")
+  svg6.append("text")
     // .attr("transform","rotate(-90)")
-    .attr("y",(width/2) + (padding*2) + 40)
-    .attr("x",(height/2+padding) +40)
-    .attr("class","xAxis-label")
+    .attr("y",w6/2+p6+20)
+    .attr("x",h6/2+p6)
+    .attr("class","axis-label")
     .attr("text-anchor","middle")
-    .text("Season");
+    .text("SEASON");
+
+  var legend = svg6
+    // .append("rect")
+    // .attr("transform","rotate(-90)")
+    // .attr("width","100px")
+    // .attr("height","100px")
+    // .style("color","black")
+    // .attr("class","legend-dialogue")
+    .append("g");
+
+    legend.append("text")
+      .attr("transform","translate(" + (w6-p6) + "," + (50) + ")")
+      .attr("class","axis-label")
+      // .attr("text-anchor","middle")
+      .text("Michael")
+      .transition()
+        .duration(4000)
+        .delay(4000)
+        .text("Dwight")
+        .transition()
+          .duration(4000)
+          // .delay(4000)
+          .text("Jim")
+          .transition()
+            .duration(4000)
+            // .delay(4000)
+            .text("Pam")
+            .transition()
+              .duration(4000)
+              // .delay(4000)
+              .text("Andy");
 
   });

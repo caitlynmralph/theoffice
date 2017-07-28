@@ -167,7 +167,7 @@ html {
   /*border-bottom: 1px solid #cacaca;
   padding-bottom: 5px;*/
   width: 1000px;
-  margin-bottom: -10px;
+  margin-bottom: 25px;
 }
 
 .chart-subtitle{
@@ -363,6 +363,24 @@ html {
     padding-top: 10px;
 }
 
+.dialogue-over-time-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+.dialogue-over-time-line-chart{
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
 .axis-text{
   font-family: 'Atlas Grotesk Web';
   font-size: 13px;
@@ -371,6 +389,11 @@ html {
   /* text-anchor: end; */
   /*stroke-width: 0px;*/
 }
+
+/*.legend-dialogue{
+  fill: "black";
+  stroke: "black";
+}*/
 
 .axis-line{
   stroke: "black";

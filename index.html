@@ -7,14 +7,13 @@
     <script type="text/javascript" src="d3/d3.js"></script>
     <script src="d3-tip-master/d3-tip.js"></script>
     <script type = "text/javascript"  src = "jquery-3.2.1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
   </head>
   <body>
-    <p class="top-title">An Exercise In</br>
-    Analyzing Your</br>
-    Favorite TV Show</br>
-    With Data</p>
-    <p class="main-subtitle">Featuring Every "That's What She Said" Ever Said In <em>The Office</em></p>
+    <p class="top-title"><em>The Office</em></p>
     <div class="thats-what-she-said-container">
+      <p class="chart-title">Every "That's What She Said"</p>
       <script src="thatswhatshesaid.js"></script>
     </div>
     <div class="line-counts-container">
@@ -33,6 +32,10 @@
       <script src="dwightov.js"></script>
       <button id="generate">Generate</button>
       <div id="response"></div>
+    </div>
+    <div class="dialogue-over-time-container">
+      <p class="chart-title">How do the characters' dialogue change throughout the series?</p>
+      <script src="dialogueovertime.js"></script>
     </div>
   </body>
 </html>
