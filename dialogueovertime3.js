@@ -1,12 +1,12 @@
-var w7 = 600;
-var h7 = 400;
-var p7 = 60;
+var w8 = 600;
+var h8 = 400;
+var p8 = 60;
 
 //Create svg element
-var div7 = d3.select(".dialogue-over-time-container")
+var div8 = d3.select(".dialogue-over-time-container")
   .append("div");
 
-d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", function(d, i, columns) {
+d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", function(d, i, columns) {
   for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
     console.log(d);
     return d;
@@ -14,82 +14,80 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
     if (error) throw error;
 
   var xScale = d3.scaleBand()
-    .rangeRound([p7/2,w7-p7*2])
+    .rangeRound([p8,w8-p8])
     .padding(0.1);
   var yScale = d3.scaleLinear()
-    .range([h7-p7, p7]);
-  var xAxis = d3.axisBottom(xScale)
-    .tickSize(0)
-    .tickFormat("");
+    .range([h8-p8, p8]);
+  var xAxis = d3.axisBottom(xScale);
   var yAxis = d3.axisLeft(yScale)
     .tickFormat(d3.format(".0%"))
     .tickSizeOuter(0);
 
-  xScale.domain(data.map(function(d) { return d.episodes; }));
+  xScale.domain(data.map(function(d) { return d.seasons; }));
   yScale.domain([0, d3.max(data, function(d) { return Math.max(d.Michael, d.Dwight,d.Jim,
     d.Pam,d.Andy );})]);
 
-  var valueLine = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Michael); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine2 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline2 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Dwight); })
       .curve(d3.curveMonotoneX);;
 
-  var valueLine3 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline3 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Jim); })
       .curve(d3.curveMonotoneX);;
 
-  var valueLine4 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline4 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Pam); })
       .curve(d3.curveMonotoneX);;
 
-  var valueLine5 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline5 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Andy); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine6 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline6 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Angela); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine7 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline7 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Kevin); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine8 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline8 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Erin); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine9 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline9 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Oscar); })
       .curve(d3.curveMonotoneX);
 
-  var valueLine10 = d3.line()
-      .x(function(d) { return xScale(d.episodes); })
+  var valueline10 = d3.line()
+      .x(function(d) { return xScale(d.seasons); })
       .y(function(d) { return yScale(d.Ryan); })
       .curve(d3.curveMonotoneX);
 
-  var svg7 = div7
+  var svg8 = div8
       .append("svg")
-      .attr("width",w7)
-      .attr("height",h7)
+      .attr("width",w8)
+      .attr("height",h8)
       .attr("class","dialogue-over-time-line-chart");
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine);
+      .attr("d", valueline);
 
   var totalLength = path.node().getTotalLength();
 
@@ -107,11 +105,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine2)
+      .attr("d", valueline2)
 
   var totalLength = path.node().getTotalLength();
 
@@ -129,11 +127,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine3)
+      .attr("d", valueline3)
 
   var totalLength = path.node().getTotalLength();
 
@@ -151,11 +149,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine4)
+      .attr("d", valueline4)
 
   var totalLength = path.node().getTotalLength();
 
@@ -173,11 +171,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine5)
+      .attr("d", valueline5)
 
   var totalLength = path.node().getTotalLength();
 
@@ -194,11 +192,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine6)
+      .attr("d", valueline6)
 
   var totalLength = path.node().getTotalLength();
 
@@ -216,11 +214,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .delay(16000)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine7)
+      .attr("d", valueline7)
 
   var totalLength = path.node().getTotalLength();
 
@@ -238,11 +236,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .delay(12000)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine8)
+      .attr("d", valueline8)
 
   var totalLength = path.node().getTotalLength();
 
@@ -260,11 +258,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .delay(8000)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine9)
+      .attr("d", valueline9)
 
   var totalLength = path.node().getTotalLength();
 
@@ -282,11 +280,11 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .delay(4000)
         .style("stroke-opacity",0);
 
-  var path = svg7.append("path")
+  var path = svg8.append("path")
       .data([data])
       .attr("class", "line")
       .style("stroke","blue")
-      .attr("d", valueLine10)
+      .attr("d", valueline10)
 
   var totalLength = path.node().getTotalLength();
 
@@ -303,35 +301,39 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
         .duration(500)
         .style("stroke-opacity",0);
 
-  svg7.append("g")
+  svg8.append("g")
     .attr("class","axis-line")
-    .attr("transform","translate(" + (p7/2) + "," + (h7 - p7) + ")")
-    .call(xAxis);
+    .attr("transform","translate(0," + (h8 - p8) + ")")
+    .call(xAxis)
+    .selectAll("text")
+      .attr("class","axis-text")
+      .attr("dx", "0em")
+      .attr("dy", ".75em");
 
-  svg7.append("g")
+  svg8.append("g")
     .attr("class","axis-line")
-    .attr("transform","translate(" + p7 + ",0)")
+    .attr("transform","translate(" + p8 + ",0)")
     .call(yAxis)
     .selectAll("text")
       .attr("class","axis-text");
 
-  svg7.append("text")
+  svg8.append("text")
     .attr("transform","rotate(-90)")
-    .attr("y",p7-50)
-    .attr("x",0-(h7/2))
+    .attr("y",p8-50)
+    .attr("x",0-(h8/2))
     .attr("class","axis-label")
     .attr("text-anchor","middle")
     .text("DIALOGUE");
 
-  svg7.append("text")
+  svg8.append("text")
     // .attr("transform","rotate(-90)")
-    .attr("y",w7/2+p7+20)
-    .attr("x",h7/2+p7)
+    .attr("y",w8/2+p8+20)
+    .attr("x",h8/2+p8)
     .attr("class","axis-label")
     .attr("text-anchor","middle")
-    .text("EPISODE");
+    .text("TIME");
 
-  var legend = svg7
+  var legend = svg8
     // .append("rect")
     // .attr("transform","rotate(-90)")
     // .attr("width","100px")
@@ -341,7 +343,7 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
     .append("g");
 
     legend.append("text")
-      .attr("transform","translate(" + (w7-p7) + "," + (50) + ")")
+      .attr("transform","translate(" + (w8-p8) + "," + (50) + ")")
       .attr("class","axis-label")
       // .attr("text-anchor","middle")
       .text("Michael")
@@ -377,4 +379,75 @@ d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", func
                           .duration(500)
                           .style("opacity",0);
 
+  d3.csv("spreadsheets/percentdialogue_episode_maincharacters_transpose.csv", function(d, i, columns) {
+    for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+      console.log(d);
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+
+      xScale.domain(data.map(function(d) { return d.episodes; }));
+
+      svg8.selectAll("circle")
+          .data(data)
+          .enter()
+          .append("circle")
+          .style("fill","black")
+          .attr("cx",function(d) {
+              return xScale(d.episodes);
+          })
+          .attr("cy",function(d) {
+              return yScale(d.Michael);
+          })
+          .attr("r", 2)
+          .transition()
+            .duration(4000)
+            .delay(4000)
+            .attr("cy",function(d) {
+                return yScale(d.Dwight);
+            })
+            .transition()
+              .duration(4000)
+              .attr("cy",function(d) {
+                  return yScale(d.Jim);
+              })
+              .transition()
+                .duration(4000)
+                .attr("cy",function(d) {
+                    return yScale(d.Pam);
+                })
+                .transition()
+                  .duration(4000)
+                  .attr("cy",function(d) {
+                      return yScale(d.Andy);
+                  })
+                  .transition()
+                    .duration(4000)
+                    .attr("cy",function(d) {
+                        return yScale(d.Angela);
+                      })
+                        .transition()
+                          .duration(4000)
+                          .attr("cy",function(d) {
+                              return yScale(d.Kevin);
+                            })
+                              .transition()
+                                .duration(4000)
+                                .attr("cy",function(d) {
+                                    return yScale(d.Erin);
+                                  })
+                                    .transition()
+                                      .duration(4000)
+                                      .attr("cy",function(d) {
+                                          return yScale(d.Oscar)
+                                        })
+                                          .transition()
+                                            .duration(4000)
+                                            .attr("cy",function(d) {
+                                                return yScale(d.Ryan);
+                                              })
+                                              .transition()
+                                                .duration(500)
+                                                .style("fill","transparent");
+    });
   });

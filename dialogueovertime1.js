@@ -20,7 +20,8 @@ d3.csv("spreadsheets/percentdialogue_season_maincharacters_transpose.csv", funct
     .range([h6-p6, p6]);
   var xAxis = d3.axisBottom(xScale);
   var yAxis = d3.axisLeft(yScale)
-    .tickFormat(d3.format(".0%"));
+    .tickFormat(d3.format(".0%"))
+    .tickSizeOuter(0);
 
   xScale.domain(data.map(function(d) { return d.seasons; }));
   yScale.domain([0, d3.max(data, function(d) { return Math.max(d.Michael, d.Dwight,d.Jim,
