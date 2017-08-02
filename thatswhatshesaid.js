@@ -6,7 +6,7 @@ var div1 = d3.select(".thats-what-she-said-container");
 
 d3.tsv("spreadsheets/thatswhatshesaid_cleaned_new.tsv", function(data) {
   data.forEach(function(d) {
-      d.Number = +d.Number;
+      // d.Number = +d.Number;
       // console.log(d.Line1);
       // console.log(d.Line1[1]);
       // console.log(d.Line1[3]);
